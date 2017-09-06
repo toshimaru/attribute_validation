@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["toshimaru"]
   spec.email         = ["me@toshimaru.net"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{Attributes Validation Extension for ActiveRecord/ActiveModel}
+  spec.description   = %q{ActiveRecord/ActiveModel validation extension which enables attributes validation.}
   spec.homepage      = "https://github.com/toshimaru/attribute_validation"
   spec.license       = "MIT"
 
