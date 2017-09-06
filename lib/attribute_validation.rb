@@ -6,6 +6,4 @@ require 'active_record'
 require 'attribute_validation/validations'
 require 'attribute_validation/version'
 
-module ActiveRecord::Validations
-  include AttributeValidation::Validations
-end
+ActiveRecord::Base.include AttributeValidation::Validations
