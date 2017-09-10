@@ -5,17 +5,26 @@ require 'attribute_validation'
 
 require 'minitest/autorun'
 
+require 'pry'
 require 'sqlite3'
 
 DB_NAME = 'test.db'
-db = SQLite3::Database.new DB_NAME
+db = SQLite3::Database.new(DB_NAME)
+db.execute 'DROP TABLE users'
 db.execute <<-SQL
-  create table users(id, name);
+  CREATE TABLE IF NOT EXISTS users(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name STRING NOT NULL,
+    age INTEGER NOT NULL
+  );
 SQL
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
   database: DB_NAME
 )
 
+# Model for Test
 class User < ActiveRecord::Base
+  validates :name, presence: true
+  validates :age, numericality: true
 end
