@@ -10,7 +10,6 @@ require 'sqlite3'
 
 DB_NAME = 'test.db'
 db = SQLite3::Database.new(DB_NAME)
-db.execute 'DROP TABLE users'
 db.execute <<-SQL
   CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
