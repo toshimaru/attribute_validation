@@ -13,6 +13,6 @@ gemfile:
 matrix:
   exclude:
     - rvm: 2.1
-      gemfile: activerecord_5.0.gemfile
+      gemfile: gemfiles/activerecord_5.0.gemfile
     - rvm: 2.1
-      gemfile: activerecord_5.1.gemfile
+      gemfile: gemfiles/activerecord_5.1.gemfile
