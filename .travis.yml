@@ -14,5 +14,5 @@ matrix:
   exclude:
     - rvm: 2.1
       gemfile: activerecord_5.0.gemfile
-    # - rvm: 2.1
-    #   gemfile: activerecord_5.1.gemfile
+    - rvm: 2.1
+      gemfile: activerecord_5.1.gemfile
