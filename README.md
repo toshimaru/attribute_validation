@@ -1,10 +1,9 @@
 # AttributeValidation
 
+[![Build Status](https://travis-ci.org/toshimaru/attribute_validation.svg?branch=master)](https://travis-ci.org/toshimaru/attribute_validation)
 [![Gem Version](https://badge.fury.io/rb/attribute_validation.svg)](https://badge.fury.io/rb/attribute_validation)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/attribute_validation`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+ActiveRecord/ActiveModel extension which enables validate the specific attributes.
 
 ## Installation
 
@@ -24,7 +23,22 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+class User < ActiveRecord::Base
+  validates :name, presence: true
+  validates :age, numericality: true
+end
+
+user = User.new(name: "toshimaru")
+user.valid? # => false
+user.errors.messages # => {:age=>["is not a number"]}
+
+user.valid_attributes? :name # => true
+user.errors.messages # => {}
+
+user.valid_attributes? :name, :age # => false
+user.errors.messages # => {:age=>["is not a number"]}
+```
 
 ## Development
 
