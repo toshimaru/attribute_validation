@@ -7,3 +7,13 @@ rvm:
   - 2.3.3
   - 2.4.1
 before_install: gem install bundler -v 1.15.4
+gemfile:
+  - gemfiles/activerecord_4.2.gemfile
+  - gemfiles/activerecord_5.0.gemfile
+  - gemfiles/activerecord_5.1.gemfile
+matrix:
+  exclude:
+    - rvm: 2.1
+      gemfile: gemfiles/activerecord_5.0.gemfile
+    - rvm: 2.1
+      gemfile: gemfiles/activerecord_5.1.gemfile
