@@ -32,4 +32,14 @@ class AttributeValidationTest < Minitest::Test
     assert user.valid_attributes? :age
     assert_empty user.errors.messages
   end
+
+  def test_alias_valid_attributes_with_valid_model
+    user = User.new(name: 'foo', age: '2')
+
+    assert user.validate_attributes :name
+    assert_empty user.errors.messages
+
+    assert user.validate_attributes :age
+    assert_empty user.errors.messages
+  end
 end
