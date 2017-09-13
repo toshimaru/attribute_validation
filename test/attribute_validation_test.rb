@@ -32,6 +32,12 @@ class AttributeValidationTest < Minitest::Test
     assert_equal user.errors.messages.keys, [:name, :age]
   end
 
+  def test_context_valid_attributes_with_invalid_model_using_multiple_args
+    user = User.new
+    user.valid_attributes? :name, :age, :context_name, context: :custom_context
+    assert_equal user.errors.messages.keys, [:name, :age, :context_name]
+  end
+
   def test_valid_attributes_with_valid_model
     user = User.new(name: 'toshi', age: 1)
 
