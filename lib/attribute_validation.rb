@@ -7,3 +7,4 @@ require 'attribute_validation/validations'
 require 'attribute_validation/version'
 
 ActiveRecord::Base.include AttributeValidation::Validations
+ActiveModel::Model.include AttributeValidation::Validations
