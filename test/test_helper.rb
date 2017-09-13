@@ -14,7 +14,8 @@ db.execute <<-SQL
   CREATE TABLE IF NOT EXISTS users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name STRING NOT NULL,
-    age INTEGER NOT NULL
+    age INTEGER NOT NULL,
+    context_name STRING
   );
 SQL
 ActiveRecord::Base.establish_connection(
@@ -26,4 +27,5 @@ ActiveRecord::Base.establish_connection(
 class User < ActiveRecord::Base
   validates :name, presence: true
   validates :age, numericality: true
+  validates :context_name, presence: true, on: :custom_context
 end
