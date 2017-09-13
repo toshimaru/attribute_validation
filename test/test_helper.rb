@@ -22,10 +22,3 @@ ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
   database: DB_NAME
 )
-
-# Model for Test
-class User < ActiveRecord::Base
-  validates :name, presence: true
-  validates :age, numericality: true
-  validates :context_name, presence: true, on: :custom_context
-end
